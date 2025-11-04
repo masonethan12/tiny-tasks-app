@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🕐 TinyTasks
 
-## Getting Started
+**TinyTasks** は「1分で終わる小さなタスク」を気軽に管理できる、  
+シンプルで感覚的な ToDo アプリです。  
+Next.js (App Router, TypeScript) + Tailwind CSS + Framer Motion で構築されています。
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 セットアップ
+
+### 1. リポジトリをクローン
+
+```
+git clone https://github.com/your-username/tinytasks.git
+cd tinytasks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. パッケージをインストール
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. 開発サーバーを起動
 
-## Learn More
+```
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+→ 立ち上がったらブラウザで以下を開きます：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔗 [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 💡 使い方
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🏠 ホーム画面
+起動すると、中央に「TinyTasks」カードが表示されます。  
+ここであなたの「すぐできるタスク」を管理します。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### ➕ 新しいタスクを追加
+
+1. **「＋ 新しいタスクを追加」ボタン** をクリック  
+2. モーダルが開きます  
+3. タスクの内容を入力  
+4. 下の **スライダーで重要度（1〜5）** を調整  
+   - 低：緑（1）  
+   - 高：赤（5）  
+5. 「追加」ボタンで保存
+
+👉 タスクは自動的に **重要度の高い順** に並び替えられます。
+
+---
+
+### 🗑️ タスクを削除
+
+- 各タスクの右側にある **ゴミ箱アイコン**（🗑️）をクリックで削除できます。
+
+---
+
+### 💾 データの保存
+
+- タスクは **ブラウザの LocalStorage** に自動保存されます。
+- ページをリロードしてもデータは保持されます。
+
+---
+
+### ⚙️ 技術スタック
+
+| 分類 | 使用技術 |
+|------|------------|
+| フロントエンド | [Next.js 15 (App Router)](https://nextjs.org/) |
+| 言語 | TypeScript |
+| スタイリング | [Tailwind CSS](https://tailwindcss.com/) |
+| アニメーション | [Framer Motion](https://www.framer.com/motion/) |
+| アイコン | [React Icons](https://react-icons.github.io/react-icons/) |
+| デプロイ | [Vercel](https://vercel.com/) |
