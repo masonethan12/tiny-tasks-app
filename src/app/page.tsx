@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiPlus, FiTrash2 } from "react-icons/fi";
+import Image from "next/image";
 
 type Task = {
   text: string;
@@ -47,7 +49,8 @@ export default function Home() {
   const addTask = () => {
     if (!input.trim()) return;
     const newTask = { text: input.trim(), priority };
-    setTasks([...tasks, newTask]);
+    const updated = [...tasks, newTask].sort((a, b) => b.priority - a.priority);
+    setTasks(updated);
     setInput("");
     setPriority(3);
     setShowModal(false);
@@ -61,22 +64,16 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-indigo-50 to-white px-4">
       <div className="w-full max-w-md rounded-2xl bg-white shadow-lg p-6">
-        <h1 className="text-2xl font-semibold text-indigo-700 mb-4 text-center">
-          🕐 TinyTasks
-        </h1>
-        <p className="text-gray-500 text-sm text-center mb-6">
-          「1分で終わること」＋重要度を設定してみよう！
-        </p>
+        <Image src="/logo.svg" alt="Logo" width={100} height={100} className="mb-4 w-1/3 h-fit mx-auto" />
 
-        {/* タスク追加ボタン */}
         <button
           onClick={() => setShowModal(true)}
-          className="w-full mb-4 rounded-lg bg-indigo-600 text-white px-4 py-2 text-sm font-medium hover:bg-indigo-700 transition"
+          className="w-full mb-4 flex items-center justify-center gap-2 rounded-lg bg-indigo-600 text-white px-4 py-2 text-sm font-medium hover:bg-indigo-700 transition"
         >
-          ＋ 新しいタスクを追加
+          <FiPlus className="text-lg" />
+          新しいタスクを追加
         </button>
 
-        {/* タスクリスト */}
         <ul className="space-y-2">
           {tasks.map((task, index) => (
             <motion.li
@@ -91,28 +88,28 @@ export default function Home() {
                     task.priority
                   )}`}
                 ></span>
-                <span className="text-gray-700 text-sm">{task.text}</span>
+                <span className="text-gray-700">{task.text}</span>
               </div>
               <button
                 onClick={() => removeTask(index)}
-                className="text-xs text-red-500 hover:text-red-600"
+                className="text-sm text-red-500 hover:text-red-600"
+                title="削除"
               >
-                削除
+                <FiTrash2 />
               </button>
             </motion.li>
           ))}
         </ul>
 
         {tasks.length === 0 && (
-          <p className="text-center text-gray-400 text-sm mt-6">
-            タスクはまだありません ✨
+          <p className="text-center text-gray-400 mt-6">
+            タスクはまだありません
           </p>
         )}
       </div>
 
-      <footer className="mt-6 text-xs text-gray-400">
-        
-         2025 TinyTasks — Made with Next.js 15 + Tailwind
+      <footer className="mt-6 text-sm text-gray-300">
+        &copy; 2025 TinyTasks - Powered by Vercel.
       </footer>
 
       {/* モーダル */}
