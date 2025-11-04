@@ -2,7 +2,6 @@
 
 **TinyTasks** は「1分で終わる小さなタスク」を気軽に管理できる、  
 シンプルで感覚的な ToDo アプリです。  
-Next.js (App Router, TypeScript) + Tailwind CSS + Framer Motion で構築されています。
 
 ---
 
